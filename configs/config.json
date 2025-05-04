@@ -4,12 +4,19 @@
 	},
 	"backends": [
 		{
-			"url": "http://google.com",
-			"maxConns": 50
+			"url": "http://localhost:8001",
+			"maxConns": 10,
+			"healthCheckPath": "/health"
 		},
 		{
-			"url": "http://mail.ru",
-			"maxConns": 100
+			"url": "http://localhost:8002",
+			"maxConns": 10,
+			"healthCheckPath": "/health"
+		},
+		{
+			"url": "http://localhost:8003",
+			"maxConns": 10,
+			"healthCheckPath": "/health"
 		}
 	],
 	"healthCheck": {
