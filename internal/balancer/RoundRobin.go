@@ -71,24 +71,24 @@ func (r *RoundRobin) AddBackend(backend *Backend) {
 // реализуем саму логику балансировки роунд робин которая из себя представляет алгоритм
 // который балансирует нагрузку по кругу, т.е. это будет похоже на очередь, которая замкнута
 func (r *RoundRobin) NextBackendRR() *Backend {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
+	r.mu.Lock() // Заменить RLock на Lock
+	defer r.mu.Unlock()
 
 	if len(r.backends) == 0 {
 		return nil
 	}
 
-	next := atomic.AddUint32(&r.index, 1) % uint32(len(r.backends)) //используем % для того чтобы не выходить за границы массива
-	for i := uint32(0); i < uint32(len(r.backends)); i++ {
-		nowIndex := (next + i) % uint32(len(r.backends))
-
-		backend := r.backends[nowIndex]
+	startIndex := r.index
+	for i := 0; i < len(r.backends); i++ {
+		currentIndex := (startIndex + uint32(i)) % uint32(len(r.backends))
+		backend := r.backends[currentIndex]
 
 		backend.mu.RLock()
 		state := backend.State
 		backend.mu.RUnlock()
 
 		if state {
+			r.index = (currentIndex + 1) % uint32(len(r.backends))
 			backend.IncrementConn()
 			return backend
 		}
