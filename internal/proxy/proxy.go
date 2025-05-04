@@ -99,15 +99,6 @@ func (lb *LoadBalancer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if lb.balancer.NextBackendRR() == nil {
-		w.Header().Set("Content-Type", "application/json")
-		// Если нет доступных бэкендов, возвращаем ошибку 503
-		logger.Logger.Err(err).Msg("нет доступных бэкендов")
-		w.WriteHeader(http.StatusServiceUnavailable)
-		_, _ = w.Write([]byte("Нет доступных бэкендов"))
-		return
-	}
-
 	lb.reverseProxy.ServeHTTP(w, r)
 }
 
