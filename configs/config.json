@@ -4,17 +4,17 @@
 	},
 	"backends": [
 		{
-			"url": "http://localhost:8001",
+			"url": "http://host.docker.internal:8001",
 			"maxConns": 10,
 			"healthCheckPath": "/health"
 		},
 		{
-			"url": "http://localhost:8002",
+			"url": "http://host.docker.internal:8002",
 			"maxConns": 10,
 			"healthCheckPath": "/health"
 		},
 		{
-			"url": "http://localhost:8003",
+			"url": "http://host.docker.internal:8003",
 			"maxConns": 10,
 			"healthCheckPath": "/health"
 		}
