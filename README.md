@@ -25,3 +25,9 @@
 git clone https://github.com/ttiiuus/loadBalancer.git
 cd loadBalancer
 go build -o loadbalancer main.go
+
+### Сборка бинарника 
+```bash
+git clone https://github.com/ttiiuus/loadBalancer.git
+cd loadBalancer
+go build -o loadbalancer main.go
