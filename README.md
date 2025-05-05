@@ -31,4 +31,5 @@ go build -o loadbalancer main.go
 ```bash
 git clone https://github.com/ttiiuus/loadBalancer.git
 cd loadBalancer
-go build -o loadbalancer main.go
+docker build -t loadbalancer .
+docker run -p 8080:8080 loadbalancer:latest
