@@ -1,8 +1,10 @@
-<p align="center">
+<div align="center">
   <a href="https://github.com/ttiiuus/loadBalancer">
-    <img src="https://img.shields.io/badge/⚡-Load_Balancer-8A2BE2?style=for-the-badge&logo=go&logoColor=white" alt="Load Balancer"/>
+    <img src="https://i.imgur.com/xyz123.gif" width="800" alt="Load Balancer Demo"/>
+    <br>
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=2500&pause=1000&color=8A2BE2&center=true&width=800&lines=🚀+Next-gen+Load+Balancer;⚡+Powered+by+Go;🔁+Intelligent+Traffic+Routing" alt="Animated title"/>
   </a>
-</p>
+</div>
 # loadBalancer
 Round-robin http load balancer
 
